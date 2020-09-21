@@ -20,3 +20,15 @@ Route::get('/', function () {
 Route::get('/search_user', 'UserController@search');
 
 Route::get('/create_user', 'UserController@create');
+
+Route::post('/saveName', 'userController@store');
+
+Route::get('/show/{user_id}', 'UserController@show');
+
+Route::get('/update/{user_id}', 'UserController@update');
+
+Route::get('/delete/{user_id}', 'UserController@delete');
+
+Route::get('/comments', 'UserController@getComments');
+
+Route::get('/create_fake_data','UserController@storeFakeData');

@@ -36,4 +36,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Relationship - Un utilisateur possède plusieurs commentaires
+     */
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
 }
