@@ -32,3 +32,5 @@ Route::get('/delete/{user_id}', 'UserController@delete');
 Route::get('/comments', 'UserController@getComments');
 
 Route::get('/create_fake_data','UserController@storeFakeData');
+
+Route::get('/get_name', 'UserController@getName');

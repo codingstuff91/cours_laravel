@@ -40,7 +40,6 @@ class UserController extends Controller
     public function storeFakeData()
     {
         $user = factory(User::class, 30)->create();
-        dd($user);
     }
 
     public function show(Request $request)
@@ -71,5 +70,14 @@ class UserController extends Controller
         $user = User::find(1);
 
         $comments = $user->comments;
+    }
+
+    /**
+     * Exemple de requete pour recuperer les utilisateurs s'appelant ROBERT
+     */
+    public function getName()
+    {
+        $olds = User::where('name','Robert')->get();
+        dd($olds);
     }
 }

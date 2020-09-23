@@ -44,4 +44,12 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Comment');
     }
+
+    /**
+     * Relationship - Un utilisateur a plusieurs roles
+     */
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role');
+    }
 }
