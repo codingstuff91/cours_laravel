@@ -21,7 +21,7 @@ Route::get('/search_user', 'UserController@search');
 
 Route::get('/create_user', 'UserController@create');
 
-Route::post('/saveName', 'userController@store');
+Route::post('/saveName', 'userController@store')->name('user.store');
 
 Route::get('/show/{user_id}', 'UserController@show');
 
@@ -31,6 +31,7 @@ Route::get('/delete/{user_id}', 'UserController@delete');
 
 Route::get('/comments', 'UserController@getComments');
 
-Route::get('/create_fake_data','UserController@storeFakeData');
-
 Route::get('/get_name', 'UserController@getName');
+
+
+Route::resource('roles', 'RoleController');

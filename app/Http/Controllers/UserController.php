@@ -29,17 +29,12 @@ class UserController extends Controller
         $user = new User;
 
         $user->name = $request->prenom;
-        $user->email = "test4@test.fr";
+        $user->email = "test5@test.fr";
         $user->password = "secret"; 
         
         $user->save();
 
         return redirect('/');
-    }
-
-    public function storeFakeData()
-    {
-        $user = factory(User::class, 30)->create();
     }
 
     public function show(Request $request)
