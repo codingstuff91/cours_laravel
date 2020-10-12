@@ -1,0 +1,1 @@
+<h1>Merci de vous etre enregistré</h1>

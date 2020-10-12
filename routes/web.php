@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('/search_user', 'UserController@search');
 
@@ -33,5 +33,9 @@ Route::get('/comments', 'UserController@getComments');
 
 Route::get('/get_name', 'UserController@getName');
 
+Route::get('/send_mail', 'MailController@send');
 
 Route::resource('roles', 'RoleController');
+
+Route::get('/login', 'LoginController@login')->name('login');
+Route::post('/login', 'LoginController@authenticate')->name('authenticate');
