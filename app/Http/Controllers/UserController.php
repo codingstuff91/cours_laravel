@@ -8,20 +8,16 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function search()
+
+    public function index()
     {
         $users = User::all();
-
-        return view('vueExemple')->with(['trucs'=> $users]);
+        return view('users.index')->with(['users'=> $users]);
     }
 
     public function create()
     {
-        $user = User::create([
-            'name' => 'Matthieu',
-            'email' => 'test2@test.fr',
-            'password' => 'tutu'
-        ]);
+        return view('users.create');
     }
 
     public function store(Request $request)
@@ -65,14 +61,5 @@ class UserController extends Controller
         $user = User::find(1);
 
         $comments = $user->comments;
-    }
-
-    /**
-     * Exemple de requete pour recuperer les utilisateurs s'appelant ROBERT
-     */
-    public function getName()
-    {
-        $olds = User::where('name','Robert')->get();
-        dd($olds);
     }
 }
