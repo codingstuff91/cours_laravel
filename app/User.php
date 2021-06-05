@@ -2,9 +2,9 @@
 
 namespace App;
 
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -29,27 +29,18 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-
-    /**
-     * Relationship - Un utilisateur possède plusieurs commentaires
-     */
-    public function comments()
-    {
-        return $this->hasMany('App\Comment');
-    }
-
-    /**
      * Relationship - Un utilisateur a plusieurs roles
      */
     public function roles()
     {
         return $this->belongsToMany('App\Role');
+    }
+
+    /**
+     * Relationship - Un utilisateur possede plusieurs documents
+     */
+    public function documents()
+    {
+        return $this->belongsToMany('App\Document');
     }
 }
