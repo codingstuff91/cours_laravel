@@ -41,6 +41,6 @@ class User extends Authenticatable
      */
     public function documents()
     {
-        return $this->belongsToMany('App\Document');
+        return $this->hasMany('App\Document');
     }
 }
