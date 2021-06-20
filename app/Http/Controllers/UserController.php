@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Role;
 use App\User;
-use App\Comment;
+use App\Document;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -17,18 +18,15 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('users.create');
+        $roles = Role::all();
+        return view('users.create', ['roles' => $roles]);
     }
 
     public function store(Request $request)
-    {
-        $user = new User;
+    {        
+        $user = User::create($request->all());
 
-        $user->name = $request->prenom;
-        $user->email = "test5@test.fr";
-        $user->password = "secret"; 
-        
-        $user->save();
+        $user->roles()->attach(Role::find($request->role));
 
         return redirect('/');
     }
@@ -56,10 +54,8 @@ class UserController extends Controller
         $user->delete();
     }
 
-    public function getComments()
+    public function getDocuments(User $user)
     {
-        $user = User::find(1);
-
-        $comments = $user->comments;
+        return $user->documents->count();
     }
 }

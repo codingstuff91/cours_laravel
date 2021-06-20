@@ -1,5 +1,7 @@
 <?php
 
+use App\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,7 +33,7 @@ Route::get('/update/{user_id}', 'UserController@update');
 
 Route::get('/delete/{user_id}', 'UserController@delete');
 
-Route::get('/comments', 'UserController@getComments');
+Route::get('/documents/{user}', 'UserController@getDocuments');
 
 Route::get('/get_name', 'UserController@getName');
 
